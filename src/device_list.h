@@ -15,6 +15,20 @@ class UltraleapDeviceList : public Resource {
     GDCLASS(UltraleapDeviceList, Resource);
 
 public:
+    ~UltraleapDeviceList();
+
+    Array devices;
+    
+    bool add_device(Ref<UltraleapDevice> device);
+    bool remove_device(Ref<UltraleapDevice> device);
+    bool has_device(Ref<UltraleapDevice> device);
+    int find(Ref<UltraleapDevice> device, int from);
+    int size() { return devices.size(); }
+
+    Ref<UltraleapDevice> get(int index) { return ((Ref<UltraleapDevice>)devices[index]); }
+
+    Ref<UltraleapDevice> find_by_id(uint32_t id);
+    Ref<UltraleapDevice> find_by_serial(String serial);
 
 protected:
     static void _bind_methods();
