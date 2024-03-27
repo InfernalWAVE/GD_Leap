@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dikn54ote2ssa"]
+
+[ext_resource type="Script" path="res://leap_motion_controller.gd" id="1_jfofp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qotjf"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_kp4aw"]
+sky_material = SubResource("ProceduralSkyMaterial_qotjf")
+
+[sub_resource type="Environment" id="Environment_8wflw"]
+background_mode = 2
+sky = SubResource("Sky_kp4aw")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_sq1vq"]
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8wflw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="UltraleapHandTracking" type="UltraleapHandTracking" parent="."]
+
+[node name="UltraleapDeviceNode" type="UltraleapDeviceNode" parent="." node_paths=PackedStringArray("tracked_node")]
+tracker = NodePath("../UltraleapHandTracking")
+script = ExtResource("1_jfofp")
+tracked_node = NodePath("../MeshInstance3D")
+tracker_name = "/leap/hands"
+
+[node name="XRBodyModifier3D" type="XRBodyModifier3D" parent="."]
+body_tracker = &"/leap/hands"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_sq1vq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.41398)

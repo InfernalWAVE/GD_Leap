@@ -71,7 +71,6 @@ protected:
 
 private:
     std::mutex frame_mutex;
-    std::mutex image_mutex;
 
     bool opened = false;
     bool subscribed = false;

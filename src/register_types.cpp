@@ -2,9 +2,21 @@
 #include "HelloWorld.h"
 
 #include <gdextension_interface.h>
+
 #include <godot_cpp/core/defs.hpp>
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/godot.hpp>
+
+#include "ultraleap.h"
+#include "bone.h"
+#include "digit.h"
+#include "palm.h"
+#include "hand.h"
+#include "frame.h"
+#include "types.h"
+#include "device.h"
+#include "device_node.h"
+#include "device_list.h"
 
 using namespace godot;
 
@@ -14,6 +26,16 @@ void initialize_hello_world(ModuleInitializationLevel p_level){
     }
 
     ClassDB::register_class<HelloWorld>();
+    ClassDB::register_class<UltraleapHandTracking>();
+    ClassDB::register_class<UltraleapBone>();
+    ClassDB::register_class<UltraleapDigit>();
+    ClassDB::register_class<UltraleapHand>();
+    ClassDB::register_class<UltraleapPalm>();
+    ClassDB::register_class<UltraleapFrame>();
+    ClassDB::register_class<UltraleapTypes>();
+    ClassDB::register_class<UltraleapDevice>();
+    ClassDB::register_class<UltraleapDeviceNode>();
+    ClassDB::register_class<UltraleapDeviceList>();
 }
 
 void uninitialize_hello_world(ModuleInitializationLevel p_level){
