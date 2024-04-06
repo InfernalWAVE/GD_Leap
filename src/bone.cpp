@@ -166,7 +166,7 @@ void UltraleapBone::fill_bone_data(Ref<UltraleapBone> bone, Transform3D root, LE
     compute_bone_data(bone);
 
     // Set transform for rigging
-    bone->set_global_transform(current_bone_transform * rigging_transform, root * rigging_transform);
+    bone->set_global_transform(current_bone_transform*rigging_transform, root*rigging_transform);
 }
  
 void UltraleapBone::fill_bone_data(Ref<UltraleapBone> bone, Ref<UltraleapBone> previous_bone, LEAP_BONE* leap_bone, BoneType type, Transform3D rigging_transform) {
@@ -194,7 +194,7 @@ void UltraleapBone::fill_bone_data(Ref<UltraleapBone> bone, Ref<UltraleapBone> p
     compute_bone_data(bone);
 
     // Set transform for rigging
-    bone->set_global_transform(current_bone_transform * rigging_transform);
+    bone->set_global_transform(current_bone_transform*rigging_transform);
 }
 
 void UltraleapBone::compute_bone_data(Ref<UltraleapBone> bone) {
