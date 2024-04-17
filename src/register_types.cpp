@@ -1,5 +1,4 @@
 #include "register_types.h"
-#include "HelloWorld.h"
 
 #include <gdextension_interface.h>
 
@@ -20,12 +19,10 @@
 
 using namespace godot;
 
-void initialize_hello_world(ModuleInitializationLevel p_level){
+void initialize_gd_leap(ModuleInitializationLevel p_level){
     if(p_level != MODULE_INITIALIZATION_LEVEL_SCENE){
         return;
     }
-
-    ClassDB::register_class<HelloWorld>();
     ClassDB::register_class<UltraleapHandTracking>();
     ClassDB::register_class<UltraleapBone>();
     ClassDB::register_class<UltraleapDigit>();
@@ -38,7 +35,7 @@ void initialize_hello_world(ModuleInitializationLevel p_level){
     ClassDB::register_class<UltraleapDeviceList>();
 }
 
-void uninitialize_hello_world(ModuleInitializationLevel p_level){
+void uninitialize_gd_leap(ModuleInitializationLevel p_level){
     if(p_level != MODULE_INITIALIZATION_LEVEL_SCENE){
         return;
     }
@@ -46,11 +43,11 @@ void uninitialize_hello_world(ModuleInitializationLevel p_level){
 }
 
 extern "C"{
-    GDExtensionBool GDE_EXPORT hello_world_init(GDExtensionInterfaceGetProcAddress p_get_proc_address, const GDExtensionClassLibraryPtr p_library, GDExtensionInitialization *r_intitialization){
+    GDExtensionBool GDE_EXPORT gd_leap_init(GDExtensionInterfaceGetProcAddress p_get_proc_address, const GDExtensionClassLibraryPtr p_library, GDExtensionInitialization *r_intitialization){
         godot::GDExtensionBinding::InitObject init_obj(p_get_proc_address, p_library, r_intitialization);
 
-        init_obj.register_initializer(initialize_hello_world);
-        init_obj.register_terminator(uninitialize_hello_world);
+        init_obj.register_initializer(initialize_gd_leap);
+        init_obj.register_terminator(uninitialize_gd_leap);
         init_obj.set_minimum_library_initialization_level(MODULE_INITIALIZATION_LEVEL_SCENE);
 
         return init_obj.init();

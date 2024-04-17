@@ -347,6 +347,8 @@ func pose_from_transform(new_transform: Transform3D, bone_id: int) -> void:
 	
 	bone_transform = bone_transform.rotated_local(Vector3.UP, -PI/2)
 	
+	var rig_transform = rigging_transform
+	
 	# thumbs
 	match bone_id:
 		35:
