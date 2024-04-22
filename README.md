@@ -3,7 +3,7 @@ This is extension enables Leap Motion tracking inside Godot 4.3+ by using the Le
 
 Much of this work is taken directly from Rodolphe's repo (with permission), which can be found here: https://forge.lunai.re/rodolphe/godot-ultraleap-plugin
 
-I strongly encourage you to check out Rodolphe's work if you are interested in learning how this works more specifically.
+I strongly encourage you to check out Rodolphe's work if you are interested in learning more about how this works.
 
 
 There are 2 main demo scenes: pose_mixamo, and pose_vrm. pose_mixamo uses the mannequin mixamo model, and demos the beginning of the XRBodyTracker implementation. pose_vrm is the same idea as pose_mixamo, just with no UpperChest bone (different bone layout).
