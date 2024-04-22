@@ -5,6 +5,16 @@ Much of this work is taken directly from Rodolphe's repo (with permission), whic
 
 I strongly encourage you to check out Rodolphe's work if you are interested in learning how this works more specifically.
 
+
+There are 2 main demo scenes: pose_mixamo, and pose_vrm. pose_mixamo uses the mannequin mixamo model, and demos the beginning of the XRBodyTracker implementation. pose_vrm is the same idea as pose_mixamo, just with no UpperChest bone (different bone layout).
+
+you can switch between the different cameras in the scene using the 1, 2, 3, 4, 5, and 6 keys.
+
+right now, the demos aren't utilizing the XRBodyTracker system. this means that different skeletons need different setups bc of the different bone indices. i plan to integrate with the XRBodyTracker system soon to eliminate the need for different setups depending on skeleton type.
+
+the skeletons used in both demos are retargeted to the Godot humanoid bone profile. this is important bc the rest poses of the bones must be taken into account when posing, and godot humanoid profile provides a consistent convention in this way.
+
+
 # NOTE
 - idk what i'm doing really but i'm trying my best. if things are sloppy, forgive me.
 - this was made and tested on Windows. it can be made to work for Mac, but currently it is not setup for it.
@@ -19,6 +29,18 @@ I strongly encourage you to check out Rodolphe's work if you are interested in l
 
 # RELEASE INSTALL INSTRUCTIONS
 - N/A (for now)
+
+# USE INSTRUCTIONS
+- add UltraleapDevice node to scene
+- add UltraleapHandTracking node to scene
+- assign UltraleapDevice as the tracker for the UltraleapHandTracking node in the inspector
+- attach a script to UltraleapDeviceNode to access the tracking data
+
+data is passed from the extension to the node in frames. a frame can be accessed with get_interpolated_frame(frame_time), for example. a frame has members for right_hand and left_hand. each hand contains data for the arm, palm/wrist, and fingers.
+
+the data exposed to the nodes closesly follows the way it is presented by LeapC. information on the API can be found here: https://docs.ultraleap.com/api-reference/tracking-api/leapc-guide.html
+
+a full write up of the functions is coming soon. ctrl-clicking the class names in the demo scripts will show the functions available to call, though there aren't descriptions yet.
 
 # CREDITS
 This software is released under the MIT License. See LICENSE file for information on permissions.
