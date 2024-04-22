@@ -3,9 +3,6 @@ import os
 import sys
 
 env = SConscript("godot-cpp/SConstruct")
-env.Append(CPPPATH=['#libs/LeapC/'])
-env.Append(LIBPATH=['#libs/LeapC/'])
-env.Append(LIBS=['LeapC'])
 
 # For reference:
 # - CCFLAGS are compilation flags shared between C and C++
@@ -32,4 +29,18 @@ else:
         source=sources,
     )
 
-Default(library)
+    env.Append(LIBS=['LeapC'])
+    env.Append(LIBPATH = ['C:/Program Files/Ultraleap/LeapSDK/lib/x64'])
+    env.Append(CPPPATH = ["C:/Program Files/Ultraleap/LeapSDK/include"])
+
+    post_actions = [
+        Copy("demoproject/bin/LeapC.dll", "C:/Program Files/Ultraleap/LeapSDK/lib/x64/LeapC.dll")
+]
+
+if library is not None:
+    for post_action in post_actions:
+            AddPostAction(library, post_action)
+
+    Default(library)
+else:
+    print("Nothing to build, weird")
