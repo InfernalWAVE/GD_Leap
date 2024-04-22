@@ -1,3 +1,10 @@
+ # ****************************************************************
+ # * Copyright (c) 2024 Ryan Powell
+ # *
+ # * This software is released under the MIT License.
+ # * See the LICENSE file in the project root for more information.
+ # *****************************************************************
+
 extends Camera3D
 
 @export var input_action_trigger: String
