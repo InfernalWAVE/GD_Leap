@@ -23,7 +23,7 @@ I strongly encourage you to check out Rodolphe's work if you are interested in l
 # CREDITS
 This software is released under the MIT License. See LICENSE file for information on permissions.
 
-This software contains source code provided by Ultraleap. See LICENSE.ULTRALEAP.txt file for information on permissions.
+This software contains source code provided by Ultraleap. See LICENSE.ULTRALEAP.md and THIRD-PARTY.LICENSE.ULTRALEAP.md files for information on permissions.
 
 This software would not have been possible without the foundation work done by Rodolphe, and all the help he offered on Discord. Once again, his repo can be found here: https://forge.lunai.re/rodolphe/godot-ultraleap-plugin
 
