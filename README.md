@@ -25,6 +25,9 @@ This software is released under the MIT License. See LICENSE file for informatio
 
 This software contains source code provided by Ultraleap. See LICENSE.ULTRALEAP.md and THIRD-PARTY.LICENSE.ULTRALEAP.md files for information on permissions.
 
+This software contains assets from Mixamo. See https://community.adobe.com/t5/mixamo-discussions/mixamo-faq-licensing-royalties-ownership-eula-and-tos/td-p/13234775 for information on permissions.
+Also see https://www.adobe.com/legal/terms.html for general terms of use of adobe products.
+
 This software would not have been possible without the foundation work done by Rodolphe, and all the help he offered on Discord. Once again, his repo can be found here: https://forge.lunai.re/rodolphe/godot-ultraleap-plugin
 
 Additionally, work done by Bastiaan on the previous leap motion addon helped inspire and inform my goals. You can find this repo here: https://github.com/BastiaanOlij/gdleapmotion-asset
