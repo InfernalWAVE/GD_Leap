@@ -219,12 +219,13 @@ enum Joint {
 }
 
 func _ready() -> void:
+	body_tracker.name = "/leap/body"
 	root_pose = Transform3D(skeleton.get_bone_global_pose(0).basis)
 	if should_position_arms:
 		ik_proxy_ra.start()
 		ik_proxy_la.start()
 	if should_use_xr_tracker:
-		XRServer.add_body_tracker("/leap/body", body_tracker)
+		XRServer.add_tracker(body_tracker)
 
 func _process(_delta: float) -> void:
 	var frame : UltraleapFrame = get_interpolated_frame(Time.get_ticks_usec())
@@ -414,5 +415,3 @@ func pose_from_transform(new_transform: Transform3D, bone_id: int) -> void:
 				skeleton.set_bone_pose_rotation(bone_id-2, shoulder_tramsform.basis.get_rotation_quaternion())
 				skeleton.set_bone_pose_rotation(bone_id-1, upper_arm_transform.basis.get_rotation_quaternion())
 	
-
-

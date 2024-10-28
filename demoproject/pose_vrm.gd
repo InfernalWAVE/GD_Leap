@@ -177,5 +177,3 @@ func pose_from_transform(new_transform: Transform3D, bone_id: int) -> void:
 				var upper_arm_transform: Transform3D = Transform3D(ik_proxy_skeleton.get_bone_global_rest(bone_id-2).affine_inverse()*ik_proxy_skeleton.get_bone_global_pose(bone_id-1)*parent_local_rest_transform*local_rest_transform)
 				skeleton.set_bone_pose_rotation(bone_id-1, upper_arm_transform.basis.get_rotation_quaternion())
 	
-
-
